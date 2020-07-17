@@ -1,0 +1,45 @@
+begin_<points> Tx
+project_id 46
+active
+vertical_line no
+pattern_shown no
+cube_size 2.50000
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AutoPatternScale
+ShowDescription yes
+CVsVisible yes
+CVsLocation -1
+PatternOption TransmitterAntennaOption
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude -77.074286291027093
+latitude 38.893816735445498
+visible yes
+terrain
+end_<reference>
+nVertices 1
+173.000000000000000 112.000000000000000 20.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p yes
+use_apg_acceleration no
+is_transmitter yes
+is_receiver no
+begin_<transmitter> 
+begin_<pattern> 
+antenna 0
+waveform 1
+alignmentMode spherical 0.00000 90.00000 0.00000
+rotation_x_calc 0.00000
+rotation_y_calc -0.00000
+rotation_z_calc -0.00000
+end_<pattern>
+power 30.00000
+end_<transmitter>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<points>

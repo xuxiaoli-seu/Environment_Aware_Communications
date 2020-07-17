@@ -1,0 +1,45 @@
+begin_<points> Base Station 28GHz shifted
+project_id 44
+active
+vertical_line yes
+pattern_shown no
+cube_size 5.00000
+CVxLength 10.00000
+CVyLength 10.00000
+CVzLength 10.00000
+AntennaPatternScale 3.00000
+ShowDescription yes
+CVsVisible no
+CVsLocation -1
+PatternOption TransmitterAntennaOption
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude -77.078700000000012
+latitude 38.890700000000002
+visible no
+terrain
+end_<reference>
+nVertices 1
+561.000000000000000 455.000000000000000 20.000000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration no
+is_transmitter yes
+is_receiver no
+begin_<transmitter> 
+begin_<pattern> 
+antenna 7
+waveform 1
+alignmentMode sequential 0.00000 0.00000 0.00000
+rotation_x_calc 0.00000
+rotation_y_calc -0.00000
+rotation_z_calc -0.00000
+end_<pattern>
+power 30.00000
+end_<transmitter>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<points>
