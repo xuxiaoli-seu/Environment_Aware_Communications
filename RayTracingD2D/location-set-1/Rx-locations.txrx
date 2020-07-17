@@ -1,0 +1,47 @@
+begin_<grid> ReceiverGrid_8m
+project_id 12
+active
+vertical_line no
+pattern_shown no
+CVxLength 3.00000
+CVyLength 3.00000
+CVzLength 3.00000
+AutoPatternScale
+ShowDescription yes
+CVsVisible yes
+CVsLocation 642
+PatternOption ReceiverAntennaOption
+CVsThickness 3
+begin_<location> 
+begin_<reference> 
+cartesian
+longitude -77.043899999999994
+latitude 38.907200000000003
+visible no
+terrain
+end_<reference>
+side1 330.00000
+side2 350.00000
+spacing 8.00000
+nVertices 1
+-335.814636230211363 -348.362022399800821 1.500000000000000
+end_<location>
+pattern_show_arrow no
+pattern_show_as_sphere no
+generate_p2p no
+use_apg_acceleration yes
+is_transmitter no
+is_receiver yes
+begin_<receiver> 
+begin_<pattern> 
+antenna 0
+waveform 0
+alignmentMode spherical 0.00000 90.00000 0.00000
+rotation_x_calc 0.00000
+rotation_y_calc -0.00000
+rotation_z_calc -0.00000
+end_<pattern>
+NoiseFigure 3.00000
+end_<receiver>
+powerDistribution Uniform 10.00000 10.00000 inactive nosampling 10
+end_<grid>
