@@ -222,19 +222,19 @@ def plot_strongest_path_AoD_map():
     sin_true_labels=np.sin(np.deg2rad(true_labels))
     no_path_indices=true_labels<-180.0
     sin_true_labels[no_path_indices]=1.5    
-    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),1500)
-    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),1500)
+    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),200)
+    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),200)
     xgrid,ygrid=np.meshgrid(xgrid,ygrid)    
     zgrid=griddata(rx_locs_plot,sin_true_labels,(xgrid,ygrid))   
     v = np.linspace(-1.0,1, 21,endpoint=True)
-    v=np.append(v,1.5)
+    v=np.append(v,2)
     tick=v.flatten()
     fig=plt.figure()
     plt.contourf(xgrid,ygrid,zgrid, cmap=cm.jet,levels=tick)
     cbar=plt.colorbar(ticks=tick)    
     plt.xlabel('x (m)',fontsize=14)
     plt.ylabel('y (m)',fontsize=14)
-    plt.title('strongest path azimuth AoD map: true')   
+    plt.title('azimuth AoD map: true')   
     cbar.set_label('sin($\phi$)',labelpad=20, rotation=270,fontsize=14)    
     file_dir='results/'        
     fig_name=file_dir+'azimuthAoD_True'
@@ -250,8 +250,8 @@ def plot_strongest_path_AoD_map():
     sin_pred_phi=np.sin(np.deg2rad(pred_phi))
     no_path_indices=pred_output_KNN[:,3]<-180.0
     sin_pred_phi[no_path_indices]=1.5 
-    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),1500)
-    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),1500)
+    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),200)
+    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),200)
     xgrid,ygrid=np.meshgrid(xgrid,ygrid)    
     zgrid=griddata(rx_locs_plot,sin_pred_phi,(xgrid,ygrid))
     tick=v.flatten()
@@ -259,7 +259,7 @@ def plot_strongest_path_AoD_map():
     cbar=plt.colorbar(ticks=tick)
     plt.xlabel('x (m)',fontsize=14)
     plt.ylabel('y (m)',fontsize=14)
-    plt.title('strongest path azimuth AoD map: KNN-based')  
+    plt.title('azimuth AoD map: IDW-KNN-based')  
     cbar.set_label('sin($\phi$)',labelpad=21, rotation=270,fontsize=14)   
     file_dir='results/'        
     fig_name=file_dir+'azimuthAoD_KNNBased'
@@ -272,8 +272,8 @@ def plot_strongest_path_AoD_map():
     loc_based_AoD=get_loc_based_AoD(BS_LOC,rx_locs_plot_3D)
     cos_theta_loc_based=np.cos(np.deg2rad(loc_based_AoD[:,0]))
     sin_phi_loc_based=np.sin(np.deg2rad(loc_based_AoD[:,1]))
-    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),300)
-    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),300)
+    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),200)
+    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),200)
     xgrid,ygrid=np.meshgrid(xgrid,ygrid)    
     zgrid=griddata(rx_locs_plot,sin_phi_loc_based,(xgrid,ygrid))
     tick=v.flatten()
@@ -281,7 +281,7 @@ def plot_strongest_path_AoD_map():
     cbar=plt.colorbar(ticks=tick)
     plt.xlabel('x (m)',fontsize=14)
     plt.ylabel('y (m)',fontsize=14)
-    plt.title('strongest path azimuth AoD map: loc.-based')  
+    plt.title('azimuth AoD map: loc.-based')  
     cbar.set_label('sin($\phi$)',labelpad=21, rotation=270,fontsize=14)   
     file_dir='results/'        
     fig_name=file_dir+'azimuthAoD_locBased'
@@ -294,19 +294,19 @@ def plot_strongest_path_AoD_map():
     cos_true_labels=np.cos(np.deg2rad(true_labels))
     no_path_indices=true_labels<-180.0
     cos_true_labels[no_path_indices]=1.5   
-    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),1500)
-    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),1500)
+    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),200)
+    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),200)
     xgrid,ygrid=np.meshgrid(xgrid,ygrid)    
     zgrid=griddata(rx_locs_plot,cos_true_labels,(xgrid,ygrid))    
     v = np.linspace(-1.0,1, 21,endpoint=True)
-    v=np.append(v,1.5)
+    v=np.append(v,2)
     tick=v.flatten()
     fig=plt.figure()
     plt.contourf(xgrid,ygrid,zgrid, cmap=cm.jet,levels=tick)
     cbar=plt.colorbar(ticks=tick)   
     plt.xlabel('x (m)',fontsize=14)
     plt.ylabel('y (m)',fontsize=14)
-    plt.title('strongest path zenith AoD map: true')   
+    plt.title('zenith AoD map: true')   
     cbar.set_label('cos($\\theta$)',labelpad=20, rotation=270,fontsize=14)   
     file_dir='results/'       
     fig_name=file_dir+'zenithAoD_True'
@@ -322,8 +322,8 @@ def plot_strongest_path_AoD_map():
     cos_pred_theta=np.cos(np.deg2rad(pred_theta))
     no_path_indices=pred_output_KNN[:,2]<-180.0
     cos_pred_theta[no_path_indices]=1.5   
-    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),1500)
-    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),1500)
+    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),200)
+    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),200)
     xgrid,ygrid=np.meshgrid(xgrid,ygrid)    
     zgrid=griddata(rx_locs_plot,cos_pred_theta,(xgrid,ygrid))
     tick=v.flatten()
@@ -331,7 +331,7 @@ def plot_strongest_path_AoD_map():
     cbar=plt.colorbar(ticks=tick)
     plt.xlabel('x (m)',fontsize=14)
     plt.ylabel('y (m)',fontsize=14)
-    plt.title('strongest path zenith AoD map: KNN-based')    
+    plt.title('zenith AoD map: KNN-based')    
     cbar.set_label('cos($\\theta$)',labelpad=21, rotation=270,fontsize=14)  
     file_dir='results/'       
     fig_name=file_dir+'zenithAoD_KNNBased'
@@ -342,8 +342,8 @@ def plot_strongest_path_AoD_map():
     
     
     fig=plt.figure()    
-    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),300)
-    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),300)
+    xgrid=np.linspace(rx_locs_plot[:,0].min(),rx_locs_plot[:,0].max(),200)
+    ygrid=np.linspace(rx_locs_plot[:,1].min(),rx_locs_plot[:,1].max(),200)
     xgrid,ygrid=np.meshgrid(xgrid,ygrid)    
     zgrid=griddata(rx_locs_plot,cos_theta_loc_based,(xgrid,ygrid))
     tick=v.flatten()
@@ -351,7 +351,7 @@ def plot_strongest_path_AoD_map():
     cbar=plt.colorbar(ticks=tick)
     plt.xlabel('x (m)',fontsize=14)
     plt.ylabel('y (m)',fontsize=14)
-    plt.title('strongest path zenith AoD map: loc.-based')    
+    plt.title('zenith AoD map: loc.-based')    
     cbar.set_label('cos($\\theta$)',labelpad=21, rotation=270,fontsize=14)  
     file_dir='results/'       
     fig_name=file_dir+'zenithAoD_LocBased'
@@ -360,10 +360,6 @@ def plot_strongest_path_AoD_map():
     fig.savefig(fig_name+'.jpg')
     
    
-
-    
-plot_strongest_path_AoD_map()    
-
 
 #rx_locs_new,path_num_new,path_knowl_L_strongest_new,path_knowl_all=read_ray_tracing_data() 
 rx_locs_new, path_num_new, path_knowl_L_strongest_new=exclude_no_path_rxs(rx_locs,path_num,path_knowl_L_strongest)
@@ -741,4 +737,4 @@ fig.savefig(fig_name+'.eps')
 fig.savefig(fig_name+'.pdf')
 fig.savefig(fig_name+'.jpg')
 
-
+plot_strongest_path_AoD_map()   
